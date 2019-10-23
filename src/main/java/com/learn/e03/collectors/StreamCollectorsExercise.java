@@ -33,9 +33,10 @@ public class StreamCollectorsExercise {
 	}
 
 	//- Return a map with key as country name and value as List of player Names who have played more than 100 matches
-	public  Map<String, List<Player>> getPlayerNamesByCountry(){
+	public  Map<String, List<String>> getPlayerNamesByCountry(){
 
-		Map<String, List<Player>> gropuByCountryNameMap = playerList.stream().filter(p -> p.getMatchesPlayed() > 100).collect(Collectors.groupingBy(p -> p.getCountry().getCountryName()));
+		Map<String, List<String>> gropuByCountryNameMap = playerList.stream().filter(p -> p.getMatchesPlayed() > 100)
+				.collect(Collectors.groupingBy(p -> p.getCountry().getCountryName(), Collectors.mapping(Player :: getPlayerName, Collectors.toList())));
 		return gropuByCountryNameMap;
 	}
 
