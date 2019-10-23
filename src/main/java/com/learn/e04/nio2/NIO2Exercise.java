@@ -1,5 +1,6 @@
 package com.learn.e04.nio2;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -69,9 +70,16 @@ public class NIO2Exercise {
 	
 	public static boolean searchFileName(final String fileName, final String absolutePath) {
 		
+		Path path = Paths.get(absolutePath);
 		
-		
+		try {
+			return Files.walk(path).filter(Files :: isRegularFile)
+			.filter(p -> p.getFileName().toString().equals(fileName)).findFirst().isPresent();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return false;
+		
 	}
 	public static void main(String[] args) {
 
@@ -81,7 +89,7 @@ public class NIO2Exercise {
 		List<String> result = getAllJavaFileName();
 		result.forEach(System.out :: println);
 		
-		//System.out.println("File exits :: "+searchFileName("abc.txt", "abc.txt"));
+		System.out.println("File exits :: "+searchFileName("medicines.txt", "/home/ubuntu/Desktop/WorkSpace/java8-exercises-boilerplate"));
 		
 	}
 	public static Tablet parseTablet(String line)  {
