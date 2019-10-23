@@ -57,9 +57,9 @@ public class LambdaExercise {
 	public static int sortCountryByNameAndLength(String obj1, String obj2) {
 
 		if(obj1.length() - obj2.length() == 0)
-			return obj2.compareTo(obj1);
-		else
 			return obj1.compareTo(obj2);
+		else
+			return obj1.length() - obj2.length();
 
 	}
 	public static void main(String[] args) {
