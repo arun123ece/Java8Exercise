@@ -1,0 +1,6 @@
+Paracetamol,Actavis,10/12/2015,25/08/2020
+Syruph,Actalion,12/02/2014,04/02/2018
+Combiflam,Almirall,14/09/2015,15/09/2017
+Synthoroid,Almirall,11/04/2012,16/04/2016
+Systane,Amgen,09/05/2015,05/05/2022
+Synthoroid1,Almirall,11/04/2012,16/04/2025
